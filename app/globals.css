@@ -71,8 +71,8 @@ footer{max-width:1170px;margin:auto;border-top:1px solid rgba(95,126,147,.2);pad
 @media(max-width:560px){
  .hero{padding-top:95px!important}
  .hero .portrait-stage{height:420px!important}
- .hero .hero-copy h1{font-size:clamp(46px,15vw,70px)!important}
- .hero .hero-title{font-size:19px!important}
+ .hero .hero-copy h1{font-size:clamp(56px,16vw,90px)!important}
+ .hero .hero-title{font-size:19px!an}
  .hero .hero-intro{font-size:14px!important}
  .hero .hero-actions{flex-direction:column!important;align-items:stretch!important}
  .hero .hero-actions>*{justify-content:center!important}
