@@ -1,4 +1,4 @@
-export type PortfolioData = {
+port type PortfolioData = {
   name: string;
   greeting: string;
   title: string;
@@ -20,15 +20,15 @@ export type PortfolioData = {
 };
 
 export const defaultData: PortfolioData = {
-  name: "DR. ADNAN HASAN",
+  name: "DR. ADNAN HASSAN",
   greeting: "Assalamu Alaikum,",
-  title: "BDS Intern | Dentist | Researcher",
-  subtitle: "Clinical Excellence • Research Driven • Community Focused • Future Ready",
+  title: "BDS Intern | Dentist | Researcher | Primary Health Care Provider",
+  subtitle: "Clinical Excellence • Research Driven • Community Focused • Experienced ",
   intro: "Passionate about delivering ethical dental care, advancing dental education and research, and leveraging technology for a better tomorrow.",
   location: "Dhaka, Bangladesh",
   institution: "BDS, University Dental College & Hospital, University of Dhaka",
-  email: "adnan.hasan.bd@gmail.com",
-  phone: "+880 1XXXXXXXXX",
+  email: "muhammad.adnan21124@gmail.com",
+  phone: "+880 1309081990",
   stats: [
     { value: "37+", label: "Free Medical / Dental Camps" },
     { value: "45,000+", label: "People Served" },
@@ -37,11 +37,11 @@ export const defaultData: PortfolioData = {
     { value: "5+", label: "Research Projects" }
   ],
   socials: {
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/adnan-hasan-06b430220?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     instagram: "https://www.instagram.com/",
-    whatsapp: "https://wa.me/8801XXXXXXXXX"
+    whatsapp: "https://wa.me/8801309081990"
   },
-  about: "I am a BDS intern with a strong foundation in clinical dentistry and a deep interest in conservative and aesthetic dentistry, research, digital dentistry, and community healthcare.",
+  about: "I am a BDS intern Dr with a strong foundation in clinical dentistry and a deep interest in conservative and aesthetic dentistry, research, digital dentistry, and community healthcare.",
   expertise: [
     { title: "Conservative Dentistry", image: "/clinical-1.png" },
     { title: "Aesthetic Dentistry", image: "/clinical-2.png" },
@@ -49,7 +49,7 @@ export const defaultData: PortfolioData = {
     { title: "Vital Pulp Therapy", image: "/clinical-4.png" },
     { title: "Preventive & Patient Care", image: "/clinical-5.png" }
   ],
-  impactText: "I have organized and been part of 37+ rural medical & dental camps across Bangladesh, providing free healthcare to 45,000+ people.",
+  impactText: "I have organized and been part of 48+ rural medical & dental camps across Bangladesh, providing free healthcare to 45,000+ people.",
   leadership: [
     { role: "Dental Coordinator", org: "Dreamers Consultant & Research" },
     { role: "President (Local Committee)", org: "Bangladesh Medical Students Society" },
