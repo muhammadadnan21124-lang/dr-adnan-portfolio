@@ -28,7 +28,7 @@ export const defaultData: PortfolioData = {
   location: "Dhaka, Bangladesh",
   institution: "BDS, University Dental College & Hospital, University of Dhaka",
   email: "muhammad.adnan21124@gmail.com",
-  phone: "+880 1309081990",
+  phone: "+8801309081990",
   stats: [
     { value: "37+", label: "Free Medical / Dental Camps" },
     { value: "45,000+", label: "People Served" },
