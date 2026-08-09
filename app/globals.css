@@ -61,7 +61,7 @@ footer{max-width:1170px;margin:auto;border-top:1px solid rgba(95,126,147,.2);pad
 @media(max-width:900px){
  .hero{min-height:auto!important;grid-template-columns:1fr!important;display:grid!important;padding:110px 20px 70px!important;gap:0!important}
  .hero .portrait-stage{grid-column:1!important;grid-row:1!important;width:min(390px,92vw)!important;height:500px!important;justify-self:start!important;margin:0!important;transform:translateX(-45px)!important}
- .hero .hero-copy{grid-column:1!important;grid-row:2!important;max-width:650px!important;padding:45px 0 0!important}
+ .hero .hero-copy{grid-column:1!important;grid-row:2!important;max-width:720px!important;padding:45px 0 0!important}
  .hero .hero-copy h1{font-size:clamp(52px,14vw,82px)!important}
  .hero .tooth-stage{left:50%!important;top:270px!important;right:auto!important;bottom:auto!important;width:min(390px,90vw)!important;height:min(390px,90vw)!important;opacity:.28!important;z-index:2!important}
  .hero .portrait-stage{z-index:4!important}
