@@ -22,7 +22,7 @@ port type PortfolioData = {
 export const defaultData: PortfolioData = {
   name: "DR. ADNAN HASSAN",
   greeting: "Assalamu Alaikum,",
-  title: "BDS Intern | Dentist | Researcher | Primary Health Care Provider",
+  title: "BDS Intern | Dentist | Researcher | Primary Health Care Service Provider",
   subtitle: "Clinical Excellence • Research Driven • Community Focused • Experienced ",
   intro: "Passionate about delivering ethical dental care, advancing dental education and research, and leveraging technology for a better tomorrow.",
   location: "Dhaka, Bangladesh",
