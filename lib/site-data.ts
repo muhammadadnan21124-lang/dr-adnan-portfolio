@@ -39,7 +39,7 @@ export const defaultData: PortfolioData = {
   socials: {
     linkedin: "https://www.linkedin.com/in/adnan-hasan-06b430220?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     instagram: "https://www.instagram.com/",
-    whatsapp: "https://wa.me/8801309081990"
+    whatsapp: "https://wa.me/@Dr.Adnan_Hassan"
   },
   about: "I am a BDS intern Dr with a strong foundation in clinical dentistry and a deep interest in conservative and aesthetic dentistry, research, digital dentistry, and community healthcare.",
   expertise: [
