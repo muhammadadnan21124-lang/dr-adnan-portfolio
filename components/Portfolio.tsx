@@ -66,14 +66,40 @@ export default function Portfolio() {
         <a href={data.socials.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle/></a>
       </aside>
 
-      <section id="home" className="hero" ref={heroRef}
+      <section
+        id="home"
+        className="hero"
+        ref={heroRef}
         onMouseMove={(e) => moveTooth(e.clientX, e.clientY)}
         onMouseLeave={resetTooth}
         onTouchMove={(e) => { const t=e.touches[0]; if(t) moveTooth(t.clientX,t.clientY); }}
-        onTouchEnd={resetTooth}>
+        onTouchEnd={resetTooth}
+      >
         <div className="hero-grid"/>
         <div className="hero-noise"/>
         <div className="hero-glow glow-a"/><div className="hero-glow glow-b"/>
+
+        <div
+          className="tooth-stage"
+          style={{ transform: `perspective(1100px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` }}
+        >
+          <div className="tooth-shadow"/>
+          <div className="tooth-orbit orbit-1"/><div className="tooth-orbit orbit-2"/>
+          <div className="tooth-core">
+            <Image src="/tooth-hero.png" alt="Interactive dental visualization" fill priority sizes="(max-width: 700px) 70vw, 500px"/>
+          </div>
+          <span className="tooth-dot dot-a"/><span className="tooth-dot dot-b"/><span className="tooth-dot dot-c"/>
+        </div>
+
+        <div className="portrait-stage">
+          <div className="portrait-halo"/>
+          <div className="portrait-ring ring-a"/><div className="portrait-ring ring-b"/>
+          <div className="portrait-card">
+            <Image src="/profile.png" alt={data.name} fill priority sizes="(max-width: 700px) 88vw, 520px"/>
+          </div>
+          <div className="portrait-tag"><span/> Clinical • Research • Community</div>
+        </div>
+
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-line"/> {data.greeting}</div>
           <h1>{data.name.split(" ").slice(0,-1).join(" ")}<br/><strong>{data.name.split(" ").slice(-1)}</strong></h1>
@@ -86,23 +112,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="portrait-stage">
-          <div className="portrait-halo"/>
-          <div className="portrait-ring ring-a"/><div className="portrait-ring ring-b"/>
-          <div className="portrait-card">
-            <Image src="/profile.png" alt={data.name} fill priority sizes="(max-width: 700px) 72vw, 420px"/>
-          </div>
-          <div className="portrait-tag"><span/> Clinical • Research • Community</div>
-        </div>
-
-        <div className="tooth-stage" style={{ transform: `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` }}>
-          <div className="tooth-shadow"/>
-          <div className="tooth-orbit orbit-1"/><div className="tooth-orbit orbit-2"/>
-          <div className="tooth-core"><Image src="/tooth-hero.png" alt="Interactive dental visualization" fill sizes="340px"/></div>
-          <span className="tooth-dot dot-a"/><span className="tooth-dot dot-b"/><span className="tooth-dot dot-c"/>
-        </div>
         <div className="hero-tech-label"><span>3D / DIGITAL DENTISTRY</span><b>Interactive visualization</b></div>
-
         <button className="scroll-card" onClick={() => scrollTo("about")}><span>SCROLL</span><ArrowDown size={18}/></button>
       </section>
 
@@ -209,4 +219,4 @@ function ContactForm({email}:{email:string}) {
     <textarea name="message" required placeholder="Tell me a little about your idea..."/>
     <button className="primary" type="submit">{sent ? "Opening Email…" : "Send Message"} <Send size={16}/></button>
   </form>;
-   }
+}
