@@ -1,4 +1,4 @@
-port type PortfolioData = {
+export type PortfolioData = {
   name: string;
   greeting: string;
   title: string;
