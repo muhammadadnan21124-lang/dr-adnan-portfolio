@@ -54,16 +54,22 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
 
     window.addEventListener("scroll", onScroll, {
       passive: true,
     });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () =>
+      window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const moveTooth = (clientX: number, clientY: number) => {
+  const moveTooth = (
+    clientX: number,
+    clientY: number
+  ) => {
     const el = heroRef.current;
 
     if (!el) return;
@@ -71,22 +77,27 @@ export default function Portfolio() {
     const r = el.getBoundingClientRect();
 
     const x =
-      (clientX - (r.left + r.width / 2)) / r.width;
+      (clientX - (r.left + r.width / 2)) /
+      r.width;
 
     const y =
-      (clientY - (r.top + r.height / 2)) / r.height;
+      (clientY - (r.top + r.height / 2)) /
+      r.height;
 
     setTilt({
-      x: Math.max(-1, Math.min(1, y)) * -10,
-      y: Math.max(-1, Math.min(1, x)) * 14,
+      x:
+        Math.max(-1, Math.min(1, y)) * -10,
+      y:
+        Math.max(-1, Math.min(1, x)) * 14,
     });
   };
 
-  const resetTooth = () =>
+  const resetTooth = () => {
     setTilt({
       x: 0,
       y: 0,
     });
+  };
 
   const scrollTo = (id: string) => {
     document
@@ -97,6 +108,10 @@ export default function Portfolio() {
       });
 
     setMenu(false);
+  };
+
+  const goToPage = (path: string) => {
+    window.location.href = path;
   };
 
   const mailto = `mailto:${data.email}?subject=${encodeURIComponent(
@@ -110,18 +125,36 @@ export default function Portfolio() {
       {/* NAVIGATION */}
       {/* ================================================= */}
 
-      <header className={scrolled ? "nav nav-scrolled" : "nav"}>
+      <header
+        className={
+          scrolled
+            ? "nav nav-scrolled"
+            : "nav"
+        }
+      >
 
         <button
           className="brand"
           onClick={() => scrollTo("home")}
           aria-label="Home"
         >
-          <span className="brand-d">D</span>
-          <span className="brand-star">✦</span>
+          <span className="brand-d">
+            D
+          </span>
+
+          <span className="brand-star">
+            ✦
+          </span>
         </button>
 
-        <nav className={menu ? "nav-links open" : "nav-links"}>
+
+        <nav
+          className={
+            menu
+              ? "nav-links open"
+              : "nav-links"
+          }
+        >
 
           {[
             "home",
@@ -133,29 +166,53 @@ export default function Portfolio() {
             "certificates",
             "contact",
           ].map((id) => (
+
             <button
               key={id}
-              onClick={() => scrollTo(id)}
+              onClick={() => {
+                if (
+                  id === "research"
+                ) {
+                  goToPage("/research");
+                } else if (
+                  id === "digital-dentistry"
+                ) {
+                  goToPage(
+                    "/digital-dentistry"
+                  );
+                } else {
+                  scrollTo(id);
+                }
+              }}
             >
-              {id === "digital-dentistry"
+              {id ===
+              "digital-dentistry"
                 ? "Digital Dentistry"
-                : id[0].toUpperCase() + id.slice(1)}
+                : id[0].toUpperCase() +
+                  id.slice(1)}
             </button>
+
           ))}
 
         </nav>
 
+
         <button
           className="connect-btn"
-          onClick={() => scrollTo("contact")}
+          onClick={() =>
+            scrollTo("contact")
+          }
         >
           Let&apos;s Connect
           <ArrowRight size={14} />
         </button>
 
+
         <button
           className="menu-btn"
-          onClick={() => setMenu(!menu)}
+          onClick={() =>
+            setMenu(!menu)
+          }
           aria-label="Menu"
         >
           {menu ? <X /> : <Menu />}
@@ -179,12 +236,14 @@ export default function Portfolio() {
           <Linkedin />
         </a>
 
+
         <a
           href={mailto}
           aria-label="Email"
         >
           <Mail />
         </a>
+
 
         <a
           href={data.socials.whatsapp}
@@ -207,23 +266,31 @@ export default function Portfolio() {
         className="hero"
         ref={heroRef}
         onMouseMove={(e) =>
-          moveTooth(e.clientX, e.clientY)
+          moveTooth(
+            e.clientX,
+            e.clientY
+          )
         }
         onMouseLeave={resetTooth}
         onTouchMove={(e) => {
           const t = e.touches[0];
 
           if (t) {
-            moveTooth(t.clientX, t.clientY);
+            moveTooth(
+              t.clientX,
+              t.clientY
+            );
           }
         }}
         onTouchEnd={resetTooth}
       >
 
         <div className="hero-grid" />
+
         <div className="hero-noise" />
 
         <div className="hero-glow glow-a" />
+
         <div className="hero-glow glow-b" />
 
 
@@ -239,6 +306,7 @@ export default function Portfolio() {
           <div className="tooth-shadow" />
 
           <div className="tooth-orbit orbit-1" />
+
           <div className="tooth-orbit orbit-2" />
 
           <div className="tooth-core">
@@ -254,7 +322,9 @@ export default function Portfolio() {
           </div>
 
           <span className="tooth-dot dot-a" />
+
           <span className="tooth-dot dot-b" />
+
           <span className="tooth-dot dot-c" />
 
         </div>
@@ -267,6 +337,7 @@ export default function Portfolio() {
           <div className="portrait-halo" />
 
           <div className="portrait-ring ring-a" />
+
           <div className="portrait-ring ring-b" />
 
           <div className="portrait-card">
@@ -281,9 +352,13 @@ export default function Portfolio() {
 
           </div>
 
+
           <div className="portrait-tag">
+
             <span />
+
             Clinical • Research • Community
+
           </div>
 
         </div>
@@ -294,51 +369,75 @@ export default function Portfolio() {
         <div className="hero-copy">
 
           <div className="eyebrow">
+
             <span className="eyebrow-line" />
+
             {data.greeting}
+
           </div>
 
+
           <h1>
+
             {data.name
               .split(" ")
               .slice(0, -1)
               .join(" ")}
+
             <br />
+
             <strong>
-              {data.name.split(" ").slice(-1)}
+              {data.name
+                .split(" ")
+                .slice(-1)}
             </strong>
+
           </h1>
+
 
           <p className="hero-title">
             {data.title}
           </p>
+
 
           <div className="pills">
 
             {data.subtitle
               .split(" • ")
               .map((x) => (
+
                 <span key={x}>
-                  <CheckCircle2 size={12} />
+
+                  <CheckCircle2
+                    size={12}
+                  />
+
                   {x}
+
                 </span>
+
               ))}
 
           </div>
+
 
           <p className="hero-intro">
             {data.intro}
           </p>
 
+
           <div className="hero-actions">
 
             <button
               className="primary"
-              onClick={() => scrollTo("about")}
+              onClick={() =>
+                scrollTo("about")
+              }
             >
               Explore My Journey
               <ArrowRight size={16} />
             </button>
+
 
             <a
               className="download"
@@ -355,17 +454,29 @@ export default function Portfolio() {
 
 
         <div className="hero-tech-label">
-          <span>3D / DIGITAL DENTISTRY</span>
-          <b>Interactive visualization</b>
+
+          <span>
+            3D / DIGITAL DENTISTRY
+          </span>
+
+          <b>
+            Interactive visualization
+          </b>
+
         </div>
 
 
         <button
           className="scroll-card"
-          onClick={() => scrollTo("about")}
+          onClick={() =>
+            scrollTo("about")
+          }
         >
+
           <span>SCROLL</span>
+
           <ArrowDown size={18} />
+
         </button>
 
       </section>
@@ -383,14 +494,24 @@ export default function Portfolio() {
         <div className="section-heading">
 
           <span className="kicker">
+
             <Users size={14} />
+
             ABOUT ME
+
           </span>
 
+
           <h2>
+
             Clinical care with a{" "}
-            <em>future-focused</em>{" "}
+
+            <em>
+              future-focused
+            </em>{" "}
+
             mindset.
+
           </h2>
 
         </div>
@@ -400,36 +521,61 @@ export default function Portfolio() {
 
           <div className="about-copy panel">
 
-            <p>{data.about}</p>
+            <p>
+              {data.about}
+            </p>
+
 
             <div className="facts">
 
               <div>
+
                 <BookOpen />
-                <span>{data.institution}</span>
-              </div>
 
-              <div>
-                <MapPin />
-                <span>{data.location}</span>
-              </div>
-
-              <div>
-                <Sparkles />
                 <span>
-                  Open to collaboration in research &
+                  {data.institution}
+                </span>
+
+              </div>
+
+
+              <div>
+
+                <MapPin />
+
+                <span>
+                  {data.location}
+                </span>
+
+              </div>
+
+
+              <div>
+
+                <Sparkles />
+
+                <span>
+                  Open to collaboration
+                  in research &amp;
                   dental projects
                 </span>
+
               </div>
 
             </div>
 
+
             <button
               className="outline"
-              onClick={() => scrollTo("expertise")}
+              onClick={() =>
+                scrollTo("expertise")
+              }
             >
+
               Explore Expertise
+
               <ArrowRight size={15} />
+
             </button>
 
           </div>
@@ -441,64 +587,90 @@ export default function Portfolio() {
           >
 
             <div className="panel-title">
-              <BriefcaseBusiness size={15} />
+
+              <BriefcaseBusiness
+                size={15}
+              />
+
               CLINICAL EXPERTISE
+
             </div>
+
 
             <div className="expertise-grid">
 
-              {data.expertise.map((item, i) => (
+              {data.expertise.map(
+                (item, i) => (
 
-                <article
-                  className="expertise-card"
-                  key={item.title}
-                >
+                  <article
+                    className="expertise-card"
+                    key={item.title}
+                  >
 
-                  <div className="expertise-image">
+                    <div className="expertise-image">
 
-                    {item.title ===
-                    "Aesthetic Dentistry" ? (
+                      {item.title ===
+                      "Aesthetic Dentistry" ? (
 
-                      <video
-                        src="/aesthetic-dentistry.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        aria-label={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          display: "block",
-                        }}
+                        <video
+                          src="/aesthetic-dentistry.mp4"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          aria-label={
+                            item.title
+                          }
+                          style={{
+                            width:
+                              "100%",
+                            height:
+                              "100%",
+                            objectFit:
+                              "cover",
+                            display:
+                              "block",
+                          }}
+                        />
+
+                      ) : (
+
+                        <Image
+                          src={
+                            item.image
+                          }
+                          alt={
+                            item.title
+                          }
+                          fill
+                          sizes="220px"
+                        />
+
+                      )}
+
+                      <span>
+                        0{i + 1}
+                      </span>
+
+                    </div>
+
+
+                    <div>
+
+                      <h3>
+                        {item.title}
+                      </h3>
+
+                      <ArrowRight
+                        size={15}
                       />
 
-                    ) : (
+                    </div>
 
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="220px"
-                      />
+                  </article>
 
-                    )}
-
-                    <span>
-                      0{i + 1}
-                    </span>
-
-                  </div>
-
-                  <div>
-                    <h3>{item.title}</h3>
-                    <ArrowRight size={15} />
-                  </div>
-
-                </article>
-
-              ))}
+                )
+              )}
 
             </div>
 
@@ -515,31 +687,45 @@ export default function Portfolio() {
 
       <section className="stats-wrap">
 
-        {data.stats.map((s, i) => {
+        {data.stats.map(
+          (s, i) => {
 
-          const I =
-            [
-              HeartPulse,
-              Users,
-              Award,
-              ShieldCheck,
-              FlaskConical,
-            ][i] || Award;
+            const I =
+              [
+                HeartPulse,
+                Users,
+                Award,
+                ShieldCheck,
+                FlaskConical,
+              ][i] || Award;
 
-          return (
-            <div className="stat" key={i}>
+            return (
 
-              <I />
+              <div
+                className="stat"
+                key={i}
+              >
 
-              <div>
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
+                <I />
+
+                <div>
+
+                  <strong>
+                    {s.value}
+                  </strong>
+
+                  <span>
+                    {s.label}
+                  </span>
+
+                </div>
+
               </div>
 
-            </div>
-          );
+            );
 
-        })}
+          }
+        )}
 
       </section>
 
@@ -574,14 +760,23 @@ export default function Portfolio() {
 
         </div>
 
-        <p>{data.impactText}</p>
+
+        <p>
+          {data.impactText}
+        </p>
+
 
         <button
           className="text-btn"
-          onClick={() => scrollTo("contact")}
+          onClick={() =>
+            scrollTo("contact")
+          }
         >
+
           View Impact
+
           <ArrowRight size={15} />
+
         </button>
 
       </InfoCard>
@@ -600,81 +795,43 @@ export default function Portfolio() {
 
         <div className="feature-art research-art">
 
-          <div className="research-visual">
-
-            <div className="research-orbit orbit-a" />
-            <div className="research-orbit orbit-b" />
-
-            <div className="research-core">
-              <FlaskConical size={42} />
-            </div>
-
-            <span className="research-node node-1">
-              HISTORY
-            </span>
-
-            <span className="research-node node-2">
-              ANTHROPOLOGY
-            </span>
-
-            <span className="research-node node-3">
-              PSYCHOLOGY
-            </span>
-
-            <span className="research-node node-4">
-              THEOLOGY
-            </span>
-
-          </div>
+          <video
+            src="/research-cover.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="Research and Academic Work"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
 
         </div>
 
 
-        <div className="research-content">
-
-          <span className="research-label">
-            FEATURED RESEARCH PROJECT
-          </span>
-
-          <h3>
-            Dissection of Sihr
-          </h3>
-
-          <p>
-            An interdisciplinary research project exploring
-            the historical, anthropological, psychological
-            and theological dimensions of sihr and magical
-            belief.
-          </p>
-
-          <p>
-            The study examines the development of magical
-            thought across civilizations and analyzes relevant
-            Qur&apos;anic passages, classical Islamic
-            scholarship, anthropology, evolutionary psychology
-            and cognitive science of religion.
-          </p>
-
-
-          <div className="research-tags">
-
-            <span>Islamic Studies</span>
-            <span>Anthropology</span>
-            <span>History</span>
-            <span>Psychology</span>
-            <span>Cognitive Science</span>
-
-          </div>
-
-        </div>
+        <p>
+          Interdisciplinary academic work
+          exploring history, anthropology,
+          psychology, theology and human
+          civilization.
+        </p>
 
 
         <button
           className="text-btn"
-          onClick={() => scrollTo("contact")}
+          onClick={() =>
+            goToPage("/research")
+          }
         >
-          Explore Research
+
+          View Research
+
           <ArrowRight size={15} />
+
         </button>
 
       </InfoCard>
@@ -693,99 +850,45 @@ export default function Portfolio() {
 
         <div className="feature-art digital-art">
 
-          <div className="digital-visual">
-
-            <div className="digital-grid" />
-
-            <div className="digital-tooth">
-
-              <div className="digital-tooth-glow" />
-
-              <span>3D</span>
-
-            </div>
-
-            <div className="digital-label label-1">
-              AI
-            </div>
-
-            <div className="digital-label label-2">
-              CAD/CAM
-            </div>
-
-            <div className="digital-label label-3">
-              3D
-            </div>
-
-          </div>
+          <video
+            src="/digital-dentistry-cover.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="Digital Dentistry and Innovation"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
 
         </div>
 
 
-        <div className="digital-content">
-
-          <span className="research-label">
-            FUTURE OF DENTISTRY
-          </span>
-
-          <h3>
-            Digital Dentistry &amp; Innovation
-          </h3>
-
-          <p>
-            Exploring the intersection of dentistry and
-            emerging technology, with a focus on artificial
-            intelligence, digital workflows, 3D dental design
-            and technology-driven clinical solutions.
-          </p>
-
-
-          <div className="innovation-list">
-
-            <div>
-              <CheckCircle2 size={16} />
-              <span>AI in Dentistry</span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={16} />
-              <span>
-                Digital Diagnosis &amp; Treatment Planning
-              </span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={16} />
-              <span>
-                3D Dental Design &amp; CAD/CAM
-              </span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={16} />
-              <span>
-                Cephalometric &amp; Digital Analysis
-              </span>
-            </div>
-
-            <div>
-              <CheckCircle2 size={16} />
-              <span>
-                Exocad &amp; Digital Dental Workflows
-              </span>
-            </div>
-
-          </div>
-
-        </div>
+        <p>
+          Exploring artificial intelligence,
+          digital workflows, 3D dental design
+          and emerging technologies shaping
+          the future of dentistry.
+        </p>
 
 
         <button
           className="text-btn"
-          onClick={() => scrollTo("contact")}
+          onClick={() =>
+            goToPage(
+              "/digital-dentistry"
+            )
+          }
         >
-          Explore Innovation
+
+          View Innovation
+
           <ArrowRight size={15} />
+
         </button>
 
       </InfoCard>
@@ -803,13 +906,23 @@ export default function Portfolio() {
         <div className="section-heading compact">
 
           <span className="kicker">
+
             <Award size={14} />
-            CERTIFICATIONS &amp; COURSES
+
+            CERTIFICATIONS &amp;
+            COURSES
+
           </span>
 
+
           <h2>
+
             Learning never{" "}
-            <em>stops.</em>
+
+            <em>
+              stops.
+            </em>
+
           </h2>
 
         </div>
@@ -817,30 +930,42 @@ export default function Portfolio() {
 
         <div className="cert-grid">
 
-          {data.certificates.map((c, i) => (
+          {data.certificates.map(
+            (c, i) => (
 
-            <article
-              className="certificate"
-              key={i}
-            >
+              <article
+                className="certificate"
+                key={i}
+              >
 
-              <div className="cert-number">
-                0{i + 1}
-              </div>
+                <div className="cert-number">
+                  0{i + 1}
+                </div>
 
-              <div className="cert-icon">
-                <Award />
-              </div>
 
-              <b>{c.title}</b>
+                <div className="cert-icon">
+                  <Award />
+                </div>
 
-              <span>{c.issuer}</span>
 
-              <small>{c.year}</small>
+                <b>
+                  {c.title}
+                </b>
 
-            </article>
 
-          ))}
+                <span>
+                  {c.issuer}
+                </span>
+
+
+                <small>
+                  {c.year}
+                </small>
+
+              </article>
+
+            )
+          )}
 
         </div>
 
@@ -859,42 +984,68 @@ export default function Portfolio() {
         <div className="contact-copy">
 
           <span className="kicker">
-            <MessageCircle size={14} />
+
+            <MessageCircle
+              size={14}
+            />
+
             LET&apos;S CONNECT
+
           </span>
 
+
           <h2>
+
             Have an idea?{" "}
-            <em>Let&apos;s talk.</em>
+
+            <em>
+              Let&apos;s talk.
+            </em>
+
           </h2>
 
+
           <p>
-            I&apos;m open to collaboration, research, and
-            opportunities in healthcare &amp; dentistry.
+            I&apos;m open to collaboration,
+            research, and opportunities
+            in healthcare &amp; dentistry.
           </p>
 
 
           <a href={mailto}>
+
             <Mail />
+
             {data.email}
+
           </a>
 
 
           <span>
+
             <MapPin />
+
             {data.location}
+
           </span>
 
 
-          <a href={`tel:${data.phone}`}>
+          <a
+            href={`tel:${data.phone}`}
+          >
+
             <Phone />
+
             {data.phone}
+
           </a>
 
         </div>
 
 
-        <ContactForm email={data.email} />
+        <ContactForm
+          email={data.email}
+        />
 
       </section>
 
@@ -907,22 +1058,39 @@ export default function Portfolio() {
 
         <div className="footer-brand">
 
-          <span>✦</span>
+          <span>
+            ✦
+          </span>
 
           <div>
-            <b>{data.name}</b>
-            <small>{data.title}</small>
+
+            <b>
+              {data.name}
+            </b>
+
+            <small>
+              {data.title}
+            </small>
+
           </div>
 
         </div>
+
 
         <span>
           © 2026 All Rights Reserved.
         </span>
 
+
         <span>
-          Designed for a better tomorrow{" "}
-          <b className="heart">♥</b>
+
+          Designed for a better
+          tomorrow{" "}
+
+          <b className="heart">
+            ♥
+          </b>
+
         </span>
 
       </footer>
@@ -951,6 +1119,7 @@ function InfoCard({
 }) {
 
   return (
+
     <article
       id={id}
       className="feature-card panel"
@@ -959,17 +1128,25 @@ function InfoCard({
       <div className="feature-head">
 
         <span className="panel-title">
+
           {icon}
+
           {title}
+
         </span>
 
-        <b>{number}</b>
+
+        <b>
+          {number}
+        </b>
 
       </div>
+
 
       {children}
 
     </article>
+
   );
 }
 
@@ -984,7 +1161,9 @@ function ContactForm({
   email: string;
 }) {
 
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] =
+    useState(false);
+
 
   const submit = (
     e: React.FormEvent<HTMLFormElement>
@@ -992,25 +1171,39 @@ function ContactForm({
 
     e.preventDefault();
 
-    const f = new FormData(e.currentTarget);
+    const f =
+      new FormData(
+        e.currentTarget
+      );
+
 
     const body =
-      `Name: ${f.get("name")}\n` +
-      `Email: ${f.get("email")}\n\n` +
+      `Name: ${f.get(
+        "name"
+      )}\n` +
+      `Email: ${f.get(
+        "email"
+      )}\n\n` +
       `${f.get("message")}`;
+
 
     window.location.href =
       `mailto:${email}` +
       `?subject=${encodeURIComponent(
         "Portfolio Contact"
       )}` +
-      `&body=${encodeURIComponent(body)}`;
+      `&body=${encodeURIComponent(
+        body
+      )}`;
+
 
     setSent(true);
+
   };
 
 
   return (
+
     <form
       onSubmit={submit}
       className="contact-form"
@@ -1023,6 +1216,7 @@ function ContactForm({
           required
           placeholder="Your Name"
         />
+
 
         <input
           name="email"
@@ -1055,5 +1249,6 @@ function ContactForm({
       </button>
 
     </form>
+
   );
-              }
+}
