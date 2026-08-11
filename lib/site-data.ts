@@ -30,11 +30,11 @@ intro: "Committed to ethical dental care, evidence-based practice, research, and
   email: "muhammad.adnan21124@gmail.com",
   phone: "+8801309081990",
   stats: [
-    { value: "47+", label: "Free Medical / Dental Camps" },
+    { value: "48+", label: "Free Medical / Dental Camps" },
     { value: "45,000+", label: "People Served" },
-    { value: "380+ Lakh BDT", label: "Charity Work (Free)" },
+    { value: "BDT 3.8+ Cr", label: "Documented Charity Work (Free)" },
     { value: "1,000+", label: "Clinical Cases Handled" },
-    { value: "5+", label: "Research Projects" }
+    { value: "1+", label: "Research Projects" }
   ],
   socials: {
     linkedin: "https://www.linkedin.com/in/adnan-hasan-06b430220?utm_source=share_via&utm_content=profile&utm_medium=member_android",
