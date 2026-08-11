@@ -20,7 +20,6 @@ button,a{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit
     cubic-bezier(0.22, 1, 0.36, 1)
     0.35s both;
 }
-
 .social-rail a {
   position: relative;
 
