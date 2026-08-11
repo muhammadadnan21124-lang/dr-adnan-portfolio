@@ -177,25 +177,39 @@ export default function Portfolio() {
           <ul>{data.research.map(x=><li key={x}>{x}</li>)}</ul>
           <button className="text-btn" onClick={() => scrollTo("contact")}>Discuss Research <ArrowRight size={15}/></button>
         </InfoCard>
-        <InfoCard id="impact" icon={<Users/>} title="IMPACT & COMMUNITY" number="02">
-          <div className="feature-art impact-art">
-  <video
-    src="/impact-community-cover.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    aria-label="Impact and Community"
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      display: "block",
-    }}
-</div>
-           <p>{data.impactText}</p>
-          <button className="text-btn" onClick={() => scrollTo("contact")}>View Impact <ArrowRight size={15}/></button>
-        </InfoCard>
+        <InfoCard
+  icon={<Heart />}
+  title="IMPACT & COMMUNITY"
+  number="02"
+>
+  <div className="feature-art impact-art">
+    <video
+      src="/impact-community-cover.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      aria-label="Impact and Community"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block",
+      }}
+    />
+  </div>
+
+  <p>{data.impactText}</p>
+
+  <button
+    className="text-btn"
+    onClick={() => scrollTo("contact")}
+  >
+    View Impact <ArrowRight size={15} />
+  </button>
+</InfoCard>
+        
+        <
         <InfoCard id="portfolio" icon={<BriefcaseBusiness/>} title="LEADERSHIP & EXPERIENCE" number="03">
           <div className="timeline">{data.leadership.map((x,i)=><div className="timeline-item" key={i}><span/><div><b>{x.role}</b><small>{x.org}</small></div></div>)}</div>
           <button className="text-btn" onClick={() => scrollTo("contact")}>Let&apos;s Collaborate <ArrowRight size={15}/></button>
@@ -206,14 +220,12 @@ export default function Portfolio() {
           <button className="text-btn" onClick={() => scrollTo("contact")}>Explore Innovation <ArrowRight size={15}/></button>
         </InfoCard>
       </section>
-
       <section id="certificates" className="cert-section">
         <div className="section-heading compact"><span className="kicker"><Award size={14}/> CERTIFICATIONS &amp; COURSES</span><h2>Learning never <em>stops.</em></h2></div>
         <div className="cert-grid">{data.certificates.map((c,i)=>
           <article className="certificate" key={i}><div className="cert-number">0{i+1}</div><div className="cert-icon"><Award/></div><b>{c.title}</b><span>{c.issuer}</span><small>{c.year}</small></article>
         )}</div>
       </section>
-
       <section id="contact" className="contact-section">
         <div className="contact-copy">
           <span className="kicker"><MessageCircle size={14}/> LET&apos;S CONNECT</span>
