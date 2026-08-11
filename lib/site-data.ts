@@ -9,7 +9,7 @@ export type PortfolioData = {
   email: string;
   phone: string;
   stats: { value: string; label: string }[];
-  socials: { linkedin: string; instagram: string; whatsapp: string };
+  socials: { linkecom: string; whatsapp: string };
   about: string;
   expertise: { title: string; image: string }[];
   impactText: string;
@@ -22,15 +22,15 @@ export type PortfolioData = {
 export const defaultData: PortfolioData = {
   name: "DR. ADNAN HASSAN",
   greeting: "Assalamu Alaikum,",
-  title: "BDS Intern | Dentist | Researcher | Primary Health Care Service Provider",
-  subtitle: "Clinical Excellence • Research Driven • Community Focused • Experienced ",
-  intro: "Passionate about delivering ethical dental care, advancing dental education and research, and leveraging technology for a better tomorrow.",
+title: "BDS Intern Doctor | Researcher | Community Healthcare Advocate",
+subtitle: "Clinical Dentistry • Research • Primary Healthcare • Community Service",
+intro: "Committed to ethical dental care, evidence-based practice, research, and delivering accessible primary healthcare to underserved and vulnerable communities.",
   location: "Dhaka, Bangladesh",
   institution: "BDS, University Dental College & Hospital, University of Dhaka",
   email: "muhammad.adnan21124@gmail.com",
   phone: "+8801309081990",
   stats: [
-    { value: "37+", label: "Free Medical / Dental Camps" },
+    { value: "47+", label: "Free Medical / Dental Camps" },
     { value: "45,000+", label: "People Served" },
     { value: "380+ Lakh BDT", label: "Charity Work (Free)" },
     { value: "1,000+", label: "Clinical Cases Handled" },
@@ -38,10 +38,9 @@ export const defaultData: PortfolioData = {
   ],
   socials: {
     linkedin: "https://www.linkedin.com/in/adnan-hasan-06b430220?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    instagram: "https://www.instagram.com/",
-    whatsapp: "https://wa.me/@Dr.Adnan_Hassan"
+  whatsapp: "https://wa.me/@Dr.Adnan_Hassan"
   },
-  about: "I am a BDS intern Dr with a strong foundation in clinical dentistry and a deep interest in conservative and aesthetic dentistry, research, digital dentistry, and community healthcare.",
+  about: "I am a BDS Intern Doctor with a strong foundation in clinical dentistry and a growing focus on Conservative Dentistry, Aesthetic Dentistry, Restorative Care, and Digital Dentistry. My clinical approach is grounded in careful patient assessment, evidence-based decision-making, effective communication, and a strong commitment to ethical and compassionate care. Beyond clinical practice, I have a deep interest in research, academic learning, and the application of digital innovation to modern dentistry. I continuously strive to strengthen my clinical skills, expand my knowledge, and develop a multidisciplinary perspective toward healthcare. Community healthcare is an equally important part of my professional journey. I have been actively involved in providing free primary healthcare and dental care to underserved and vulnerable communities through rural health initiatives and medical and dental camps. Working closely with people from disadvantaged backgrounds has strengthened my empathy, sense of responsibility, communication skills, and commitment to making healthcare more accessible. I believe an effective healthcare professional should combine clinical competence with empathy, integrity, continuous learning, leadership, and a genuine commitment to service. My long-term goal is to bring together clinical dentistry, research, digital innovation, and community healthcare to create meaningful and sustainable impact.",
   expertise: [
     { title: "Conservative Dentistry", image: "/clinical-1.png" },
     { title: "Aesthetic Dentistry", image: "/clinical-2.png" },
