@@ -137,14 +137,20 @@ export default function Portfolio() {
                 <article className="expertise-card" key={item.title}>
                   <div className="expertise-image">
   {item.title === "Aesthetic Dentistry" ? (
-    <video
-      src="/aesthetic-dentistry.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      aria-label={item.title}
-    />
+   <video
+  src="/aesthetic-dentistry.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  aria-label={item.title}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    display: "block",
+  }}
+/>                  
   ) : (
     <Image src={item.image} alt={item.title} fill sizes="220px"/>
   )}
