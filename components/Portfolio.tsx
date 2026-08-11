@@ -61,7 +61,6 @@ export default function Portfolio() {
 
       <aside className="social-rail">
         <a href={data.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin/></a>
-        <a href={data.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram/></a>
         <a href={mailto} aria-label="Email"><Mail/></a>
         <a href={data.socials.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle/></a>
       </aside>
