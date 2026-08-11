@@ -171,13 +171,7 @@ export default function Portfolio() {
         })}
       </section>
 
-      <section className="feature-section">
-        <InfoCard id="research" icon={<Microscope/>} title="RESEARCH & ACADEMIC WORK" number="01">
-          <div className="feature-art research-art"><span>R</span><i/></div>
-          <ul>{data.research.map(x=><li key={x}>{x}</li>)}</ul>
-          <button className="text-btn" onClick={() => scrollTo("contact")}>Discuss Research <ArrowRight size={15}/></button>
-        </InfoCard>
-        <InfoCard
+   <InfoCard
   icon={<Heart />}
   title="IMPACT & COMMUNITY"
   number="02"
@@ -208,18 +202,7 @@ export default function Portfolio() {
     View Impact <ArrowRight size={15} />
   </button>
 </InfoCard>
-        
-        <
-        <InfoCard id="portfolio" icon={<BriefcaseBusiness/>} title="LEADERSHIP & EXPERIENCE" number="03">
-          <div className="timeline">{data.leadership.map((x,i)=><div className="timeline-item" key={i}><span/><div><b>{x.role}</b><small>{x.org}</small></div></div>)}</div>
-          <button className="text-btn" onClick={() => scrollTo("contact")}>Let&apos;s Collaborate <ArrowRight size={15}/></button>
-        </InfoCard>
-        <InfoCard icon={<Sparkles/>} title="DIGITAL DENTISTRY & INNOVATION" number="04">
-          <div className="feature-art digital-art"><div className="mini-tooth">✦</div></div>
-          <ul>{data.digital.map(x=><li key={x}>{x}</li>)}</ul>
-          <button className="text-btn" onClick={() => scrollTo("contact")}>Explore Innovation <ArrowRight size={15}/></button>
-        </InfoCard>
-      </section>
+
       <section id="certificates" className="cert-section">
         <div className="section-heading compact"><span className="kicker"><Award size={14}/> CERTIFICATIONS &amp; COURSES</span><h2>Learning never <em>stops.</em></h2></div>
         <div className="cert-grid">{data.certificates.map((c,i)=>
