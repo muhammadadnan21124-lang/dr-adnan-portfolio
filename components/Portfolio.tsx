@@ -135,7 +135,21 @@ export default function Portfolio() {
             <div className="expertise-grid">
               {data.expertise.map((item,i) =>
                 <article className="expertise-card" key={item.title}>
-                  <div className="expertise-image"><Image src={item.image} alt={item.title} fill sizes="220px"/><span>0{i+1}</span></div>
+                  <div className="expertise-image">
+  {item.title === "Aesthetic Dentistry" ? (
+    <video
+      src="/aesthetic-dentistry.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      aria-label={item.title}
+    />
+  ) : (
+    <Image src={item.image} alt={item.title} fill sizes="220px"/>
+  )}
+  <span>0{i+1}</span>
+</div>
                   <div><h3>{item.title}</h3><ArrowRight size={15}/></div>
                 </article>
               )}
