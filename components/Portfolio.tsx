@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   ArrowDown, ArrowRight, Award, BookOpen, BriefcaseBusiness, CheckCircle2,
-  Download, FlaskConical, HeartPulse, Instagram, Linkedin, Mail, MapPin,
+  Download, FlaskConical, HeartPulse, Linkedin, Mail, MapPin,
   Menu, MessageCircle, Microscope, Phone, Send, ShieldCheck, Sparkles, Users, X
 } from "lucide-react";
 import { defaultData, getDataFromStorage, PortfolioData } from "../lib/site-data";
