@@ -172,7 +172,7 @@ export default function Portfolio() {
       </section>
 
    <InfoCard
-  icon={<Heartpulse />}
+  icon={<HeartPulse />}
   title="IMPACT & COMMUNITY"
   number="02"
 >
