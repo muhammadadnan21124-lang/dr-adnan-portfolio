@@ -9,7 +9,7 @@ export type PortfolioData = {
   email: string;
   phone: string;
   stats: { value: string; label: string }[];
-  socials: { linkecom: string; whatsapp: string };
+  socials: { linkedin: string; whatsapp: string };
   about: string;
   expertise: { title: string; image: string }[];
   impactText: string;
