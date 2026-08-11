@@ -805,7 +805,8 @@ export default function Portfolio() {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
+backgroundColor: "#080b12",
               display: "block",
             }}
           />
@@ -860,7 +861,8 @@ export default function Portfolio() {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
+backgroundColor: "#080b12",
               display: "block",
             }}
           />
