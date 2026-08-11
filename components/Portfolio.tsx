@@ -849,25 +849,35 @@ backgroundColor: "#080b12",
         number="04"
       >
 
-        <div className="feature-art digital-art">
 
-          <video
-            src="/digital-dentistry-cover.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-label="Digital Dentistry and Innovation"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-backgroundColor: "#080b12",
-              display: "block",
-            }}
-          />
-
-        </div>
+<div
+  className="feature-art digital-art"
+  style={{
+    width: "100%",
+    height: "auto",
+    aspectRatio: "16 / 9",
+    overflow: "hidden",
+    borderRadius: "18px",
+    position: "relative",
+  }}
+>
+  <video
+    src="/digital-dentistry-cover.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    aria-label="Digital Dentistry and Innovation"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+      display: "block",
+    }}
+  />
+</div>
 
 
         <p>
