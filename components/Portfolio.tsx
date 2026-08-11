@@ -178,8 +178,22 @@ export default function Portfolio() {
           <button className="text-btn" onClick={() => scrollTo("contact")}>Discuss Research <ArrowRight size={15}/></button>
         </InfoCard>
         <InfoCard id="impact" icon={<Users/>} title="IMPACT & COMMUNITY" number="02">
-          <div className="feature-art impact-art"><i/></div>
-          <p>{data.impactText}</p>
+          <div className="feature-art impact-art">
+  <video
+    src="/impact-community-cover.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    aria-label="Impact and Community"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      display: "block",
+    }}
+</div>
+           <p>{data.impactText}</p>
           <button className="text-btn" onClick={() => scrollTo("contact")}>View Impact <ArrowRight size={15}/></button>
         </InfoCard>
         <InfoCard id="portfolio" icon={<BriefcaseBusiness/>} title="LEADERSHIP & EXPERIENCE" number="03">
