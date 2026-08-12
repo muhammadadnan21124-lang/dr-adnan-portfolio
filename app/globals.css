@@ -304,3 +304,129 @@ footer{max-width:1170px;margin:auto;border-top:1px solid rgba(95,126,147,.2);pad
   }
 
 }
+/* =========================================
+   FLOATING NEON GLASS SECTIONS
+   ========================================= */
+
+.panel {
+  position: relative;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.38),
+    0 0 25px rgba(70, 210, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transform: translateZ(0);
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+
+/* Neon light behind the panel */
+
+.panel::before {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  bottom: -25px;
+
+  height: 45px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(60, 210, 255, 0.32),
+      rgba(60, 210, 255, 0.08) 40%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.65;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  animation: panelNeonBreath 4s ease-in-out infinite;
+}
+
+
+/* Subtle light coming from the top edge */
+
+.panel::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 12%;
+  right: 12%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(120, 230, 255, 0.65),
+      transparent
+    );
+
+  opacity: 0.65;
+
+  pointer-events: none;
+}
+
+
+/* Floating effect */
+
+.panel:hover {
+  transform:
+    translateY(-7px)
+    translateZ(10px);
+
+  border-color:
+    rgba(100, 220, 255, 0.28);
+
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(60, 210, 255, 0.14),
+    0 0 70px rgba(60, 210, 255, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.16);
+}
+
+
+/* Gentle breathing neon */
+
+@keyframes panelNeonBreath {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleX(0.92);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1.05);
+  }
+}
